@@ -3,7 +3,7 @@
 🔹 Définition formelle
 
 Une transition CSS est un effet qui contrôle la vitesse du changement d’une ou plusieurs propriétés CSS, lorsqu’un élément passe d’un état à un autre (par ex. normal → :hover, non coché → :checked, non focus → :focus).
- 
+ [Les exemples en ligne](https://lokonon52.github.io/CSS/7-Transition/)
 ## Les 3 propriétés fondamentales des transitions CSS sont :
 
 - `transition-property`
