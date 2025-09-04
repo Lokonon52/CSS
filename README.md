@@ -1,5 +1,5 @@
 # Pseudo-éléments : ::before, ::after, ::first-letter. 
-[le lien du site](https://lokonon52.github.io/CSS/5-before_after_first-letter)
+[Les exemples en ligne](https://lokonon52.github.io/CSS/5-before_after_first-letter)
 
 
 
