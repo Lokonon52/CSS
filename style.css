@@ -1,139 +1,120 @@
 
 
+ /* ______________________🔹 Exemple 1 : Bouton avec changement de couleur et zoom_____________________________________*/
 
-h1{ color: chocolate;}
-       /* ::before et ::after  */
-
-
- /* ______________________Exemple A — Ajouter une icône devant les liens externes______________________________________*/
-
-  /* cible les liens qui commencent par http (très simple) */
-a[href^="http"]::after {
-  content: "↗";              /* icône simple en texte */
-  margin-left: .25rem;
-  font-size: .85em;
-  opacity: .75;
-  
-}
- /* ________Exemple B — Soulignement animé sous un lien (barre fluide)____________________________________________________*/
-
-.link-underline {
-  position: relative;
-  text-decoration: none;
-  color: #ff4648;
-}
-
-.link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -2px;
-  width: 100%;
-  height: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  background: currentColor;      /* prend la couleur du texte */
-  transition: transform .3s ease;
-}
-
-.link-underline:hover::after {
-  transform: scaleX(1);
-}
-
-  /* ____________Exemple C — Badges/étiquettes décoratives________________________________________________*/
-
-.btn-pill {
-  position: relative;
-  padding-right: 2.5rem;           /* place pour le badge */
-}
-
-.btn-pill::after {
-  content: "3";                     /* badge chiffré */
-  position: absolute;
-  right: .5rem; top: 50%;
-  transform: translateY(-50%);
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.25rem;
-  height: 1.25rem;
-  padding: 0 .25rem;
-  font: 600 0.75rem/1 sans-serif;
+button {
+  background-color: blue;
   color: white;
-  background: crimson;
-  border-radius: 999px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  transition-property: background-color, transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+button:hover {
+  background-color: red;
+  transform: scale(1.1);
+}
+
+
+  /* ___________🔹 Exemple 2 : Image qui tourne au survol________________________________________________*/
+
+
+img {
+  width: 150px;
+ height: 150px;
+  transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+}
+
+img:hover {
+  transform: rotate(15deg);
+}
+
+
+   /* _____________🔹 Exemple 3 : Bloc qui change d’opacité_______________________________________________*/
+
+.box {
+  background-color: teal;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: bold;
+  color: whitesmoke;
+  width: 150px;
+  height: 150px;
+  transition-property: opacity;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-out;
+}
+
+.box:hover {
+  opacity: 0.5;
 }
 
 
 
-   /* ___________Exemple D — « Clearfix » moderne (héritage utile)_________________________________________________*/
-
-.left { float: left; margin: 0 1rem .5rem 0; }
-
-/* clearfix via pseudo-élément */
-.card::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-img{
-    width: 130px;
-    height: 130px;
-}
-
-    /* ___________Exemple E — Numérotation auto avec les compteurs CSS_________________________________________________*/
-
- .steps {
-  counter-reset: step;
-  list-style: none;
-  padding: 0;
-}
-
-.steps > li {
-  counter-increment: step;
-  position: relative;
-  padding-left: 2rem;
-  margin: .5rem 0;
-}
-
-.steps > li::before {
-  content: counter(step) ".";
-  position: absolute;
-  left: 0; top: 0;
-  font-weight: 700;
-  opacity: .6;
-}
-
-
-/*Exemple F — Afficher un label depuis un attribut (attr())  */
-
-
-.row {
-  display: grid;
-  grid-template-columns: 8rem 1fr;
-}
-
-.row::before {
-  content: attr(data-label) "@:";
-  font-weight: 600;
-  opacity: .7;
-  color: #ff4648;
-}
-
-
-/*  */
+/*Exemple 4: Transition Avec  background-image: linear-gradient ()et  background-position */
   
 
 
-.lead {
-  font-size: 1rem; line-height: 1.6;
-}
+.circle {
+        font-size: 34px;
+        width: 100px;
+        height: 100px;
+      background-color: black;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: azure;
+        background-position: -45px 0;
+        transition-property:background-position;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in;
+      }
+      .circle:hover {
+        background-position: 0 0;
+        background-image: linear-gradient(#ff4648,#ff4648);
+      }
+/* 🔹 Exemple 5  `:focus` + `transition */
+input[type="text"] {
+      padding: 8px;
+      border: 2px solid gray;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.3s ease; /* transition fluide */
+    }
 
-.lead::first-letter {
-  float: left;               /* crée l’effet de lettrine */
-  font-size: 3.5em;
-  line-height: 1;
-  padding: .05em .1em 0 .02em;
-  margin-right: .1em;
-  font-weight: 700;
-  color: #5b21b6;            /* violet profond */
-}
+    input[type="text"]:focus {
+      border-color: royalblue;
+      box-shadow: 0 0 10px royalblue;
+    }
+
+    /* __________🔹 Exemple 6 avec :checked + transition________________________________________________*/
+
+input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      appearance: none; /* on cache le style par défaut */
+      border: 2px solid gray;
+      border-radius: 4px;
+      transition: all 0.3s ease; /* transition fluide */
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: limegreen;
+      border-color: limegreen;
+    }
+
+
+
+
+
+
+
+   
+    
