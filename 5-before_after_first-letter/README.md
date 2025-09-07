@@ -1,5 +1,10 @@
+- 5-before_after_first-letter
+- 7-Transition
+# CSS
+## Les branches
 # Pseudo-éléments : ::before, ::after, ::first-letter. 
-[le lien du site](https://lokonon52.github.io/CSS/)
+
+[Les exemples en ligne](https://lokonon52.github.io/CSS/5-before_after_first-letter)
 
 
 
@@ -19,7 +24,22 @@ Je glisse aussi des notes Tailwind à la fin de chaque exemple si tu en utilises
 * Accessibilité : évite d’y mettre du contenu **essentiel** (souvent non lu par certains lecteurs d’écran).
 
 ---
-
+### NB  (important) :
+Par défaut, un ::before n’apparaît pas si tu ne lui donnes ni display, ni position.
+Sinon, il aura bien un width et un height, mais il reste invisible car display: inline par défaut ne prend pas en compte width et height.
+- Mais content: url("…") n’est pas combinable avec width / height .
+Le navigateur affiche l’image à sa taille réelle, et ignore les dimensions CSS même si tu  lui donnes  display et position. 
+Solution: 
+```css 
+.imogi-box::before {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 120px;
+  background: url("./images/all-right-emoji-illustration_23-2151298395.jpg") no-repeat center/cover;
+  float: left;
+}
+ `|`` .
 # 2- `::before` et `::after` – cas d’usage fréquents
 
 ## Exemple A — Ajouter une icône devant les liens externes
@@ -260,3 +280,4 @@ Cible la **première lettre rendue** d’un bloc (souvent un paragraphe). Utile 
   * Parfait pour lettrines et effets éditoriaux.
 
 ---
+
