@@ -1,0 +1,120 @@
+
+
+ /* ______________________🔹 Exemple 1 : Bouton avec changement de couleur et zoom_____________________________________*/
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  transition-property: background-color, transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+button:hover {
+  background-color: red;
+  transform: scale(1.1);
+}
+
+
+  /* ___________🔹 Exemple 2 : Image qui tourne au survol________________________________________________*/
+
+
+img {
+  width: 150px;
+ height: 150px;
+  transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-in;
+}
+
+img:hover {
+  transform: rotate(15deg);
+}
+
+
+   /* _____________🔹 Exemple 3 : Bloc qui change d’opacité_______________________________________________*/
+
+.box {
+  background-color: teal;
+  text-align: center;
+  padding-top: 50px;
+  font-weight: bold;
+  color: whitesmoke;
+  width: 150px;
+  height: 150px;
+  transition-property: opacity;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-out;
+}
+
+.box:hover {
+  opacity: 0.5;
+}
+
+
+
+/*Exemple 4: Transition Avec  background-image: linear-gradient ()et  background-position */
+  
+
+
+.circle {
+        font-size: 34px;
+        width: 100px;
+        height: 100px;
+      background-color: black;
+        background-repeat: no-repeat;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: azure;
+        background-position: -45px 0;
+        transition-property:background-position;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in;
+      }
+      .circle:hover {
+        background-position: 0 0;
+        background-image: linear-gradient(#ff4648,#ff4648);
+      }
+/* 🔹 Exemple 5  `:focus` + `transition */
+input[type="text"] {
+      padding: 8px;
+      border: 2px solid gray;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.3s ease; /* transition fluide */
+    }
+
+    input[type="text"]:focus {
+      border-color: royalblue;
+      box-shadow: 0 0 10px royalblue;
+    }
+
+    /* __________🔹 Exemple 6 avec :checked + transition________________________________________________*/
+
+input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      appearance: none; /* on cache le style par défaut */
+      border: 2px solid gray;
+      border-radius: 4px;
+      transition: all 0.3s ease; /* transition fluide */
+    }
+
+    input[type="checkbox"]:checked {
+      background-color: limegreen;
+      border-color: limegreen;
+    }
+
+
+
+
+
+
+
+   
+    
