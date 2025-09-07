@@ -19,6 +19,8 @@ margin-bottom: 20px;
 margin-left: 20px;
 ```
 
+
+
 **En Tailwind :**
 
 ```html
@@ -33,6 +35,10 @@ margin-left: 20px;
 
 * `x` = haut & bas
 * `y` = gauche & droite
+
+   
+
+
 
 ```css
 margin: 10px 30px;
@@ -136,7 +142,7 @@ margin-bottom: auto;
 margin-left: auto;
 ```
 
-**En Tailwind :**
+**En /Tailwind :**
 
 ```html
 <div class="m-auto w-1/2"></div> <!-- centré -->
@@ -183,3 +189,10 @@ margin-right: auto;
 ---
 
 👉 Est-ce que tu veux que je t’explique aussi **comment fonctionne l’échelle Tailwind (`m-0`, `m-1`, `m-2` …)** en équivalent px (par défaut : `1 = 0.25rem = 4px`) ?
+
+
+
+
+
+
+   
