@@ -1,5 +1,5 @@
 
-
+h3{ margin: 40px;}
 
 h1{ color: chocolate;}
        /* ::before et ::after  */
@@ -120,12 +120,13 @@ img{
 }
 
 
-/*  */
+/*   Exemple G ::first-letter */
   
 
 
 .lead {
   font-size: 1rem; line-height: 1.6;
+  
 }
 
 .lead::first-letter {
@@ -136,4 +137,60 @@ img{
   margin-right: .1em;
   font-weight: 700;
   color: #5b21b6;            /* violet profond */
+}
+
+
+
+ /* Exemple H emoji illustratif sur la gauche et le texte à droite, la solution 1 avec background-image est la bonne.*/
+.imogi-box {
+  display: flex;                /* active flexbox */
+  width: 700px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgb(66, 62, 62);
+}
+
+.imogi-box::before {
+  content: "";
+  flex: 0 0 25%;                /* occupe 25% de la largeur */
+  height: 100%;                 /* même hauteur que la box */
+  background: url("./images/all-right-emoji-illustration_23-2151298395.jpg") 
+              no-repeat center/cover;
+}
+
+.imogi-box p {
+  flex: 1;                      /* prend le reste de la place (75%) */
+  margin: 0;
+  padding: 0 10px;              /* petit padding pour l’espace avec l’image */
+  overflow: hidden;             /* cache le texte qui dépasse si besoin */
+}
+
+
+ /* Exemple I pseudo-élément ::before affiche une image ronde et que le texte s’enroule autour.*/
+
+.imogi-textRont{
+  width: 700px;
+  box-shadow: 0 0 4px rgb(66, 62, 62);
+   border-radius: 10px;
+  padding: 20px;
+}
+
+.imogi-textRont::before {
+  content: "";
+  float: left;                                    /* le texte s'enroule autour */
+  width: 150px;
+  height: 150px;
+  margin: 0 20px 20px 0;                          /* espace autour de l'image */
+  
+  background: url("./images/all-right-emoji-illustration_23-2151298395.jpg")
+              no-repeat center/cover;             /* image centrée + rognée */
+  
+  border-radius: 50%;                             /* rond visuel */
+  shape-outside: circle();                        /* texte épouse le rond */
+  clip-path: circle();                            /* pour être sûr que l'image soit coupée en rond */
+}
+
+.imogi-textRont p {
+  margin: 0;
+  text-align: justify;
 }
