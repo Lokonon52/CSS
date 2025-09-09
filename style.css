@@ -1,21 +1,22 @@
-
-h3{ margin: 40px;}
-
-h1{ color: chocolate;}
-       /* ::before et ::after  */
-
-
- /* ______________________Exemple A — Ajouter une icône devant les liens externes______________________________________*/
-
-  /* cible les liens qui commencent par http (très simple) */
-a[href^="http"]::after {
-  content: "↗";              /* icône simple en texte */
-  margin-left: .25rem;
-  font-size: .85em;
-  opacity: .75;
-  
+h3 {
+  margin: 40px;
 }
- /* ________Exemple B — Soulignement animé sous un lien (barre fluide)____________________________________________________*/
+
+h1 {
+  color: chocolate;
+}
+/* ::before et ::after  */
+
+/* ______________________Exemple A — Ajouter une icône devant les liens externes______________________________________*/
+
+/* cible les liens qui commencent par http (très simple) */
+a[href^="http"]::after {
+  content: "↗"; /* icône simple en texte */
+  margin-left: 0.25rem;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+/* ________Exemple B — Soulignement animé sous un lien (barre fluide)____________________________________________________*/
 
 .link-underline {
   position: relative;
@@ -26,47 +27,50 @@ a[href^="http"]::after {
 .link-underline::after {
   content: "";
   position: absolute;
-  left: 0; bottom: -2px;
+  left: 0;
+  bottom: -2px;
   width: 100%;
   height: 2px;
   transform: scaleX(0);
   transform-origin: left;
-  background: currentColor;      /* prend la couleur du texte */
-  transition: transform .3s ease;
+  background: currentColor; /* prend la couleur du texte */
+  transition: transform 0.3s ease;
 }
 
 .link-underline:hover::after {
   transform: scaleX(1);
 }
 
-  /* ____________Exemple C — Badges/étiquettes décoratives________________________________________________*/
+/* ____________Exemple C — Badges/étiquettes décoratives________________________________________________*/
 
 .btn-pill {
   position: relative;
-  padding-right: 2.5rem;           /* place pour le badge */
+  padding-right: 2.5rem; /* place pour le badge */
 }
 
 .btn-pill::after {
-  content: "3";                     /* badge chiffré */
+  content: "3"; /* badge chiffré */
   position: absolute;
-  right: .5rem; top: 50%;
+  right: 0.5rem;
+  top: 50%;
   transform: translateY(-50%);
   display: inline-grid;
   place-items: center;
   min-width: 1.25rem;
   height: 1.25rem;
-  padding: 0 .25rem;
+  padding: 0 0.25rem;
   font: 600 0.75rem/1 sans-serif;
   color: white;
   background: crimson;
   border-radius: 999px;
 }
 
+/* ___________Exemple D — « Clearfix » moderne (héritage utile)_________________________________________________*/
 
-
-   /* ___________Exemple D — « Clearfix » moderne (héritage utile)_________________________________________________*/
-
-.left { float: left; margin: 0 1rem .5rem 0; }
+.left {
+  float: left;
+  margin: 0 1rem 0.5rem 0;
+}
 
 /* clearfix via pseudo-élément */
 .card::after {
@@ -75,14 +79,14 @@ a[href^="http"]::after {
   clear: both;
 }
 
-img{
-    width: 130px;
-    height: 130px;
+img {
+  width: 130px;
+  height: 130px;
 }
 
-    /* ___________Exemple E — Numérotation auto avec les compteurs CSS_________________________________________________*/
+/* ___________Exemple E — Numérotation auto avec les compteurs CSS_________________________________________________*/
 
- .steps {
+.steps {
   counter-reset: step;
   list-style: none;
   padding: 0;
@@ -92,20 +96,19 @@ img{
   counter-increment: step;
   position: relative;
   padding-left: 2rem;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
 .steps > li::before {
   content: counter(step) ".";
   position: absolute;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   font-weight: 700;
-  opacity: .6;
+  opacity: 0.6;
 }
 
-
 /*Exemple F — Afficher un label depuis un attribut (attr())  */
-
 
 .row {
   display: grid;
@@ -115,35 +118,30 @@ img{
 .row::before {
   content: attr(data-label) "@:";
   font-weight: 600;
-  opacity: .7;
+  opacity: 0.7;
   color: #ff4648;
 }
 
-
 /*   Exemple G ::first-letter */
-  
-
 
 .lead {
-  font-size: 1rem; line-height: 1.6;
-  
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .lead::first-letter {
-  float: left;               /* crée l’effet de lettrine */
+  float: left; /* crée l’effet de lettrine */
   font-size: 3.5em;
   line-height: 1;
-  padding: .05em .1em 0 .02em;
-  margin-right: .1em;
+  padding: 0.05em 0.1em 0 0.02em;
+  margin-right: 0.1em;
   font-weight: 700;
-  color: #5b21b6;            /* violet profond */
+  color: #5b21b6; /* violet profond */
 }
 
-
-
- /* Exemple H emoji illustratif sur la gauche et le texte à droite, la solution 1 avec background-image est la bonne.*/
+/* Exemple H emoji illustratif sur la gauche et le texte à droite, la solution 1 avec background-image est la bonne.*/
 .imogi-box {
-  display: flex;                /* active flexbox */
+  display: flex; /* active flexbox */
   width: 700px;
   height: 200px;
   border-radius: 10px;
@@ -152,45 +150,203 @@ img{
 
 .imogi-box::before {
   content: "";
-  flex: 0 0 25%;                /* occupe 25% de la largeur */
-  height: 100%;                 /* même hauteur que la box */
-  background: url("./images/all-right-emoji-illustration_23-2151298395.jpg") 
-              no-repeat center/cover;
+  flex: 0 0 25%; /* occupe 25% de la largeur */
+  height: 100%; /* même hauteur que la box */
+  background: url("./images/all-right-emoji-illustration_23-2151298395.jpg")
+    no-repeat center/cover;
 }
 
 .imogi-box p {
-  flex: 1;                      /* prend le reste de la place (75%) */
+  flex: 1; /* prend le reste de la place (75%) */
   margin: 0;
-  padding: 0 10px;              /* petit padding pour l’espace avec l’image */
-  overflow: hidden;             /* cache le texte qui dépasse si besoin */
+  padding: 0 10px; /* petit padding pour l’espace avec l’image */
+  overflow: hidden; /* cache le texte qui dépasse si besoin */
 }
 
+/* Exemple I pseudo-élément ::before affiche une image ronde et que le texte s’enroule autour.*/
 
- /* Exemple I pseudo-élément ::before affiche une image ronde et que le texte s’enroule autour.*/
-
-.imogi-textRont{
+.imogi-textRont {
   width: 700px;
   box-shadow: 0 0 4px rgb(66, 62, 62);
-   border-radius: 10px;
+  border-radius: 10px;
   padding: 20px;
 }
 
 .imogi-textRont::before {
   content: "";
-  float: left;                                    /* le texte s'enroule autour */
+  float: left; /* le texte s'enroule autour */
   width: 150px;
   height: 150px;
-  margin: 0 20px 20px 0;                          /* espace autour de l'image */
-  
+  margin: 0 20px 20px 0; /* espace autour de l'image */
+
   background: url("./images/all-right-emoji-illustration_23-2151298395.jpg")
-              no-repeat center/cover;             /* image centrée + rognée */
-  
-  border-radius: 50%;                             /* rond visuel */
-  shape-outside: circle();                        /* texte épouse le rond */
-  clip-path: circle();                            /* pour être sûr que l'image soit coupée en rond */
+    no-repeat center/cover; /* image centrée + rognée */
+
+  border-radius: 50%; /* rond visuel */
+  shape-outside: circle(); /* texte épouse le rond */
+  clip-path: circle(); /* pour être sûr que l'image soit coupée en rond */
 }
 
 .imogi-textRont p {
   margin: 0;
   text-align: justify;
+}
+
+/* forme géometrique interne   */
+.parent {
+  position: relative;
+  padding: 4px;
+  width: 99%;
+  height: 500px;
+  background-color: aliceblue;
+  box-shadow: 0 0 3px blue;
+  overflow: hidden;
+}
+
+.parent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 191px;
+  height: 500px;
+  background-color: rgb(9, 216, 181);
+}
+
+.parent::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  transform: rotate(137deg);
+  width: 504px;
+  height: 827px;
+  background-color: rgb(9, 216, 181);
+}
+.text {
+  position: absolute;
+  z-index: 5;
+  color: black;
+  margin: 0;
+}
+/* fruit   */
+.fruit {
+  margin: 200px;
+  width: 70px;
+  height: 70px;
+  border-radius: 49px 174px 53px 200px;
+  -webkit-border-radius: 49px 174px 53px 200px;
+  -moz-border-radius: 49px 174px 53px 200px;
+  border: 98px solid #4dc25d;
+  background-color: #4dc25d;
+  position: relative;
+  text-align: center;
+}
+.fruit::after {
+  content: "";
+  position: absolute;
+  top: -83px;
+  left: -106px;
+  width: 30px;
+  height: 7px;
+  background-color: rgb(105, 97, 97);
+  opacity: 1;
+  border-bottom-left-radius: 9px;
+  z-index: -9;
+}
+.fruit::before {
+  content: "";
+  position: absolute;
+  top: -86px;
+  left: -80px;
+  width: 70px;
+  height: 70px;
+  background-color: green;
+  opacity: 1;
+  border-bottom-left-radius: 9px;
+  box-shadow: 0 0 3px rgb(161, 161, 170);
+  transform: rotate(-3deg);
+  z-index: 1;
+  border-radius: 0px 185px 0px 200px;
+  -webkit-border-radius: 0px 185px 0px 200px;
+  -moz-border-radius: 0px 185px 0px 200px;
+}  
+
+.carte {
+  width: 1000px;
+  height: 800px;
+  border: #5b21b6 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 300px;
+}
+
+.boxing {
+  width: 390px;
+  height: 260px;
+  background-color: black;
+  box-shadow: 0 0 9px #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 0 15px;
+  position: relative;
+ 
+}
+
+.boxing p {
+  z-index: 10;
+  width: 300px;
+  font-size: 22px;
+}
+
+
+.boxing p span {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.boxing::before {
+  content: "";
+  width: 410px;
+  height: 260px;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0 0 9px black;
+  border-radius: 20px;
+  position: absolute;
+  transform: rotate(9deg);
+}
+
+.card:first-child {
+  box-sizing: border-box;
+  width: 110px;
+  height: 110px;
+  background-color: rgb(197, 192, 199);
+  border-radius: 100%;
+  border-top: 7px black solid;
+  border-left: 3px black solid;
+  border-right: 3px black solid;
+  position: absolute;
+  top: -63px;
+  left: 159px;
+}
+.carte .legende {
+  position: absolute;
+    bottom: -119px;
+    font-size: 20px;
+    color: blue;
+    z-index: 5;
+}
+.carte .legende::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: red;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }
